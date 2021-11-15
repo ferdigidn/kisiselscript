@@ -36,7 +36,7 @@ height:700px;
 		
 		<div class="header-mobile">
         	<a class="header-toggle"><i class="fas fa-bars"></i></a>
-        	<h2><?php echo $ayarcek['ayar_title'] ?></h2>
+        	<h2><?php echo $blogcek['blog_isim']; ?></h2>
         </div>
 			
 		<!-- Left Block -->
@@ -44,7 +44,7 @@ height:700px;
 		
 			<!-- Logo -->
 			<div class="logo">
-            	<img src="img/logo.png" alt="">
+            	<a href="index.php"><img src="<?php echo $ayarcek['ayar_logo']; ?>" alt=""></a>
             </div>
 				
           	<ul>
@@ -73,7 +73,7 @@ height:700px;
             	
             </nav>
 			<div class="blog-image">
-				<img src="<?php echo $blogcek["blog_resim"]; ?>" class="kapak" alt="">
+				<img src="<?php echo $blogcek["blog_resim"]; ?>" alt="">
 			</div>
 			<div class="row blog-container">
 				<div class="col-md-10 offset-md-1">
@@ -117,5 +117,4 @@ height:700px;
         <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
     </body>
 
-<!-- Mirrored from baha.malyarchuk.space/single-blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 15:09:20 GMT -->
 </html>

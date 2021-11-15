@@ -8,7 +8,7 @@
 
 try {
 
-	$db=new PDO("mysql:host=localhost;dbname=personal;charset=utf8",'root','123456789');
+	$db=new PDO("mysql:host=localhost;dbname=ferdikurban_kisisel;charset=utf8",'ferdikurban_kisisel','16.Ferdi');
 	//echo "veritabanı bağlantısı başarılı";
 }
 

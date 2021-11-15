@@ -13,7 +13,7 @@
 		
 		<div class="header-mobile">
         	<a class="header-toggle"><i class="fas fa-bars"></i></a>
-        	<h2>Baha</h2>
+        	<h2><?php echo $ayarcek['ayar_title']; ?></h2>
         </div>
 			
 		<!-- Left Block -->
@@ -21,7 +21,7 @@
 		
 			<!-- Logo -->
 			<div class="logo">
-            	<img src="img/logo.png" alt="">
+            	<a href="#home"><img src="<?php echo $ayarcek['ayar_logo']; ?>" alt=""></a>
             </div>
 				
           	<ul>
@@ -70,7 +70,7 @@
                             		<div class="detalis">
                                 		<ul class="meta">
                                     		<li><i class="fa fa-calendar"></i><?php echo $blogcek['blog_tarih']; ?></li>
-                                    		<li><i class="icon fa fa-user"></i>Batuhan Memuroğlu</li>
+                                    		<li><i class="icon fa fa-user"></i><?php echo $hakkimdacek['hakkimda_ad']; ?></li>
                                 		</ul>
                                 		<h4><a href="blog/<?=seo($blogcek["blog_isim"]).'/'.$blogcek["blog_id"]?>"><?php echo $blogcek['blog_isim']; ?></a></h4>
                                 		<div class="text"><?php $detay = $blogcek["blog_aciklama"];
@@ -115,5 +115,4 @@
         <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
     </body>
 
-<!-- Mirrored from baha.malyarchuk.space/blog-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 15:15:33 GMT -->
 </html>

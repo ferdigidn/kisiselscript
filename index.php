@@ -23,7 +23,7 @@
 			
 			<div class="header-mobile">
                 <a class="header-toggle"><i class="fas fa-bars"></i></a>
-                <h2>LeftSoft</h2>
+                <h2><?php echo $ayarcek['ayar_title']; ?></h2>
             </div>
 			
 			<!-- Left Block -->
@@ -31,7 +31,7 @@
 		
 				<!-- Logo -->
 				<div class="logo">
-            		<img src="img/logo.png" alt="">
+            		<a href="#home"><img src="<?php echo $ayarcek['ayar_logo']; ?>" alt=""></a>
             	</div>
 				
           		<ul>
@@ -63,14 +63,11 @@
 					
 					<!-- Banner -->
 					<div class="banner">
-  						<h1>Ramazan Karaca</h1>
+  						<h1>Ferdi KURBAN</h1>
 						<p class="cd-headline rotate-1">
 							<span>I am a</span>
 							<span class="cd-words-wrapper">
-								<b class="is-visible">Developer</b>
-								<b>Photographer</b>
-								<b>Designer</b>
-								<b>Freelancer</b>
+								<b class="is-visible"><?php echo $hakkimdacek['hakkimda_meslek']; ?></b>
 							</span>
 						</p>
 					</div>
@@ -79,10 +76,10 @@
 					<!-- Social -->
 					<div class="social">
             			<ul>
-                			<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                			<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                			<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                			<li><a href="<?php echo $ayarcek['ayar_facebook']; ?>"><i class="fab fa-facebook-f"></i></a></li>
+                			<li><a href="<?php echo $ayarcek['ayar_twitter']; ?>"><i class="fab fa-twitter"></i></a></li>
+                			<li><a href="<?php echo $ayarcek['ayar_instagram']; ?>"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="<?php echo $ayarcek['ayar_youtube']; ?>"><i class="fab fa-youtube"></i></a></li>
             			</ul>
         			</div>
 			  	</section>  
@@ -94,7 +91,7 @@
 					
 					<!-- Section Title -->
 					<div class="header-page mt-70 mob-mt">
-						<h2>About Me</h2>
+						<h2>Hakkımda</h2>
 						<span></span>
 					</div>
 				
@@ -107,7 +104,7 @@
 								<div class="row">
 									<div class="col-lg-3 col-sm-4">
 										<div class="photo">
-											<img alt="" src="img/user-photo.jpg">		
+											<img alt="" src="<?php echo $hakkimdacek['hakkimda_resim']; ?>">		
 										</div>	
 									</div>
 									<div class="col-lg-9 col-sm-8">
@@ -125,8 +122,8 @@
                                 		<div class="info-icon">
                                      		<i class="fas fa-award"></i>
                                      		<div class="desc-icon">
-												<h6>8 Years Job</h6>
-                                            	<p>Experience</p>
+												<h6><?php echo $hakkimdacek['hakkimda_deneyim']; ?></h6>
+                                            	<p>Deneyim</p>
                                        		</div>
                                 		</div>
                                 	</div>
@@ -136,8 +133,8 @@
                                 		<div class="info-icon">
                                      		<i class="fas fa-certificate"></i>
                                      		<div class="desc-icon">
-												<h6>500+ Projects</h6>
-                                            	<p>Completed</p>
+												<h6><?php echo $hakkimdacek['hakkimda_proje']; ?></h6>
+                                            	<p>Tamamlandı</p>
                                       		</div>
                                 		</div>
                                 	</div>
@@ -147,13 +144,13 @@
                                 		<div class="info-icon">
                                      		<i class="fas fa-user-astronaut"></i>
                                      		<div class="desc-icon">
-												<h6>Freelance</h6>
-                                           		<p>Available</p>
+												<h6><?php echo $hakkimdacek['hakkimda_meslek']; ?></h6>
+                                           		<p>Meslek</p>
                                         	</div>
                                 		</div>
                                 	</div>
 									<div class="col-lg-3 col-sm-12 pt-50">
-                                		<a href="#" class="btn-st">Download CV</a>
+                                		<a target="_blank" href="<?php echo $ayarcek['ayar_url'].$hakkimdacek['hakkimda_cv']; ?>" class="btn-st">CV'Yİ İNDİR</a>
                                 	</div>
 								</div>
 							</div>
@@ -166,7 +163,7 @@
 						<!-- Header Block -->
 						<div class="col-md-12">
 							<div class="header-box mb-50">
-								<h3>My Interests</h3>
+								<h3>İlgi Alanlarım</h3>
 							</div>
 						</div>
 					
@@ -174,84 +171,24 @@
 							<div class="box-2">
 								<div class="row">
 									<!-- Interests Item -->
+<?php 
+
+		$ilgi=$db->prepare("SELECT * FROM ilgi");
+    $ilgi->execute();
+
+    while($ilgicek=$ilgi->fetch(PDO::FETCH_ASSOC)) {
+
+		 ?>
 									<div class="col-lg-3 col-sm-6">
 										<div class="inter-icon">
-                                     		<i class="fas fa-music"></i>
+                                     		<i class="<?php echo $ilgicek["ilgi_fa"]; ?>"></i>
                                     	 	<div class="desc-inter">
-												<h6>Music</h6>
+												<h6><?php echo $ilgicek["ilgi_ad"]; ?></h6>
                                	        	</div>
 										</div>
 									</div>
+								<?php } ?>
 								
-									<!-- Interests Item -->
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                     		<i class="fas fa-route"></i>
-                                     		<div class="desc-inter">
-												<h6>Travelling</h6>
-                                       		</div>
-                                		</div>
-									</div>
-								
-									<!-- Interests Item -->
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                 	    	<i class="far fa-image"></i>
-                                  		   	<div class="desc-inter">
-												<h6>Photos</h6>
-                                  	     	</div>
-                                		</div>
-									</div>
-								
-									<!-- Interests Item -->
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                    	 	<i class="fas fa-film"></i>
-                                     		<div class="desc-inter">
-												<h6>Movies</h6>
-                                   	    	</div>
-                                		</div>
-									</div>
-								
-									<!-- Interests Item -->
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                 	    	<i class="fas fa-space-shuttle"></i>
-                                 	    	<div class="desc-inter">
-												<h6>Space</h6>
-                                	       	</div>
-                                		</div>
-									</div>
-								
-									<!-- Interests Item -->
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                    	 	<i class="fas fa-book"></i>
-                                     		<div class="desc-inter">
-												<h6>Books</h6>
-                                    	   	</div>
-                                		</div>
-									</div>
-								
-									<!-- Interests Item -->
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-        	                             	<i class="fas fa-gamepad"></i>
-            	                         	<div class="desc-inter">
-												<h6>Video games</h6>
-                    	                   	</div>
-                        	        	</div>
-									</div>
-								
-									<!-- Interests Item -->
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-        	                             	<i class="fas fa-tree"></i>
-            	                         	<div class="desc-inter">
-												<h6>Forest</h6>
-                    	                   	</div>
-                        	        	</div>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -263,286 +200,33 @@
 						<!-- Header Block -->
 						<div class="col-md-12">
 							<div class="header-box mb-50">
-								<h3>Services</h3>
+								<h3>Hizmetlerim</h3>
 							</div>
 						</div>
-					
+					<?php 
+
+		$hizmet=$db->prepare("SELECT * FROM hizmetlerim");
+    $hizmet->execute();
+
+    while($hizmetcekk=$hizmet->fetch(PDO::FETCH_ASSOC)) {
+
+		 ?>
 						<!-- Service Item -->
 						<div class="col-lg-6 col-sm-6">
 							<div class="service box-1 mb-40">
-								<i class="fas fa-desktop"></i>
-								<h4>Web Design</h4>
-								<p>Lorem Ipsum is simply dummy text of the Lorem has been the industry's standard dummy text ever.</p>
+								<i class="<?php echo $hizmetcekk["hizmet_fa"]; ?>"></i>
+								<h4><?php echo $hizmetcekk["hizmet_baslik"]; ?></h4>
+								<p><?php echo $hizmetcekk["hizmet_aciklama"]; ?></p>
 							</div>
 						</div>
 
-						<!-- Service Item -->
-						<div class="col-lg-6 col-sm-6">
-							<div class="service box-2 mb-40">
-								<i class="fas fa-cogs"></i>
-								<h4>Web Development</h4>
-								<p>Lorem Ipsum is simply dummy text of the Lorem has been the industry's standard dummy text ever.</p>
-							</div>
-						</div>
-
-						<!-- Service Item -->
-						<div class="col-lg-6 col-sm-6">
-							<div class="service box-2 mb-40">
-								<i class="fas fa-mobile-alt"></i>
-								<h4>Responsive Design</h4>
-								<p>Lorem Ipsum is simply dummy text of the Lorem has been the industry's standard dummy text ever.</p>
-							</div>
-						</div>
-
-						<!-- Service Item -->
-						<div class="col-lg-6 col-sm-6">
-							<div class="service box-1 mb-40">
-								<i class="fas fa-medkit"></i>
-								<h4>quick Support</h4>
-								<p>Lorem Ipsum is simply dummy text of the Lorem has been the industry's standard dummy text ever.</p>
-							</div>
-						</div>
+						<?php } ?>
+						
 					</div>
 			  	</section>
          	</div>
 			 
-			<!-- Resume Section -->
-          	<div class="page pt-resume" data-simplebar>
-            	<section class="container">
-					
-					<!-- Section Title -->
-					<div class="header-page mt-70 mob-mt">
-						<h2>Resume</h2>
-    					<span></span>
-					</div>
-					
-					<!-- Experience & Education Row Start -->
-					<div class="row mt-100">
-					
-						<!-- Experience Column Start -->
-						<div class="col-lg-6 col-sm-12">
-						
-							<!-- Header Block -->
-							<div class="header-box mb-50">
-								<h3>Experience</h3>
-							</div>
-						
-							<div class="experience box-1">
-								
-								<!-- Experience Item -->
-								<div class="item">
-									<div class="main">
-										<h4>Web Design</h4>
-										<p><i class="far fa-calendar-alt"></i>2012 - 2014 | Сompany Inc</p>
-									</div>
-									<p>Work experience is essential for getting a job. Whether it's a short work placement or a longer internship, work experience is always viewed favourably by employers and can help you decide your future career.</p>
-								</div>
-
-								<!-- Experience Item -->
-								<div class="item">
-									<div class="main">
-										<h4>Fornt-End Developer</h4>
-										<p><i class="far fa-calendar-alt"></i>2014 - 2015 | Сompany Inc</p>
-									</div>
-									<p>Work experience is essential for getting a job. Whether it's a short work placement or a longer internship, work experience is always viewed favourably by employers and can help you decide your future career.</p>
-								</div>
-
-								<!-- Experience Item -->
-								<div class="item">
-									<div class="main">
-										<h4>Web Development</h4>
-										<p><i class="far fa-calendar-alt"></i>2015 - 2019 | Сompany Inc</p>
-									</div>
-									<p>Work experience is essential for getting a job. Whether it's a short work placement or a longer internship, work experience is always viewed favourably by employers and can help you decide your future career.</p>
-								</div>
-							</div>
-						</div>
-							
-						<!-- Education Column Start -->
-						<div class="col-lg-6 col-sm-12">
-						
-							<!-- Header Block -->
-							<div class="header-box mb-50 mob-box-mt">
-								<h3>Education</h3>
-							</div>
-						
-							<div class="experience box-2">
-
-								<!-- Education Item -->
-								<div class="item">
-									<div class="main">
-										<h4>Phd</h4>
-										<p><i class="far fa-calendar-alt"></i>2011 - 2013 | Computer Science</p>
-									</div>
-									<p>Work experience is essential for getting a job. Whether it's a short work placement or a longer internship, work experience is always viewed favourably by employers and can help you decide your future career.</p>
-								</div>
-
-								<!-- Education Item -->
-								<div class="item">
-									<div class="main">
-										<h4>Post Graduation</h4>
-										<p><i class="far fa-calendar-alt"></i>2013 - 2016 | Computer Science</p>
-									</div>
-									<p>Work experience is essential for getting a job. Whether it's a short work placement or a longer internship, work experience is always viewed favourably by employers and can help you decide your future career.</p>
-								</div>
-
-								<!-- Education Item -->
-								<div class="item">
-									<div class="main">
-										<h4>Gradution</h4>
-										<p><i class="far fa-calendar-alt"></i>2016 - 2018 | Computer Science</p>
-									</div>
-									<p>Work experience is essential for getting a job. Whether it's a short work placement or a longer internship, work experience is always viewed favourably by employers and can help you decide your future career.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				
-					<!-- Skills Row Start -->
-					<div class="row mt-100">
-					
-						<!-- Header Block -->
-						<div class="col-md-12">
-							<div class="header-box mb-50">
-								<h3>Skills</h3>
-							</div>
-						</div>
-					</div>
-					
-					<div class="box-1 skills">
-						<div class="row">
-							<div class="col-lg-6 col-sm-6">
-
-								<!-- Skill Item -->
-								<div class="skill-item">
-									<h4 class="progress-title">HTML5</h4>
-									<div class="progress">
-										<div class="progress-bar" style="width:98%">
-											<div class="progress-value">98%</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Skill Item -->
-								<div class="skill-item">
-									<h4 class="progress-title">CSS3</h4>
-									<div class="progress">
-										<div class="progress-bar" style="width:85%">
-											<div class="progress-value">85%</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Skill Item -->
-								<div class="skill-item">
-									<h4 class="progress-title">JavaScript</h4>
-									<div class="progress">
-										<div class="progress-bar" style="width:90%">
-											<div class="progress-value">90%</div>
-										</div>
-									</div>
-								</div>
-							
-								<!-- Skill Item -->
-								<div class="skill-item">
-									<h4 class="progress-title">UI/UX designer</h4>
-									<div class="progress">
-										<div class="progress-bar" style="width:77%">
-											<div class="progress-value">77%</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-lg-6 col-sm-6">
-								<div class="row">
-									
-									<!-- Skill Item -->
-									<div class="col-lg-6 col-sm-6">
-										<div class="chart" data-percent="80" data-bar-color="#fff"> 80% <p>PHP</p></div>
-									</div>
-									
-									<!-- Skill Item -->
-									<div class="col-lg-6 col-sm-6">
-										<div class="chart" data-percent="70" data-bar-color="#fff"> 70% <p>Illustrator</p></div>
-									</div>
-									
-									<!-- Skill Item -->
-									<div class="col-lg-6 col-sm-6">
-										<div class="chart" data-percent="60" data-bar-color="#fff"> 60% <p>Photoshop</p></div>
-									</div>
-									
-									<!-- Skill Item -->
-									<div class="col-lg-6 col-sm-6">
-										<div class="chart" data-percent="90" data-bar-color="#fff"> 90% <p>AngularJS</p></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				
-					<!-- Work Process Row Start -->
-					<div class="row mt-100">
-					
-						<!-- Header Block -->
-						<div class="col-md-12">
-							<div class="header-box mb-50">
-								<h3>My Working Process</h3>
-							</div>
-						</div>
-					</div>
-					
-					<div class="box-2 work-process mb-100">
-						<div class="row">
-							<div class="col-lg-4 col-sm-12 ltr">
-							
-                    			<!-- Working Process Item-->
-                          	 	<div class="single-wp width-sm process-1">
-									<p class="wp-step">01</p>
-									<h4 class="wp-title">Discuss idea</h4>
-									<p>I could describe these conceptions, also impress upon paper all that is living.</p>
-								</div>
-
-								<!-- Working Process Item-->
-								<div class="single-wp width-sm process-2">
-									<p class="wp-step">02</p>
-									<h4 class="wp-title">Creative concept</h4>
-									<p>I could describe these conceptions, also impress upon paper all that is living.</p>
-								</div>
-							</div>
-					
-							<div class="col-lg-4 hidden-sm">
-							
-								<!-- Working Process Circle-->
-								<div class="wp-circle">
-									<h4>Working Process</h4>
-									<span class="dots top-l"></span>
-									<span class="dots bottom-l"></span>
-									<span class="dots top-r"></span>
-									<span class="dots bottom-r"></span>
-								</div>
-							</div>
-					
-							<div class="col-lg-4 col-sm-12 rtl">
-						
-								<!-- Working Process Item-->
-								<div class="single-wp width-sm process-3">
-									<p class="wp-step">03</p>
-									<h4 class="wp-title">Web concept</h4>
-									<p>I could describe these conceptions, also impress upon paper all that is living.</p>
-								</div>
-	
-								<!-- Working Process Item-->
-								<div class="single-wp width-sm process-4">
-									<p class="wp-step">04</p>
-									<h4 class="wp-title">Final concept</h4>
-									<p>I could describe these conceptions, also impress upon paper all that is living.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-			  	</section>
-         	</div>
+			
 			 
 			<!-- Portfolio Section -->
           	<div class="page pt-portfolio" data-simplebar>
@@ -628,7 +312,56 @@
 					</div>
             	</section>
 			</div>
-			 
+			 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+			 <?php 
+
+
+							if (isset($_POST['iletisimekle'])) {
+
+														$isim = $_POST['iletisim_isim'];
+														$mail = $_POST['iletisim_mail'];
+														$eposta = $_POST['iletisim_mail'];
+														$mesaj = $_POST['iletisim_mesaj'];
+														if($isim == "" || $mail =="" || $mesaj=="") {
+
+														echo "<script type=\"text/javascript\">swal(\"HATA!\", \"Lütfen Alanı Boş Bırakmayın.\", \"error\");</script>";
+
+														}
+														
+														else if(!filter_var($eposta, FILTER_VALIDATE_EMAIL))
+														{
+																echo "<script type=\"text/javascript\">swal(\"HATA!\", \"E-Posta Adresi Geçersiz.\", \"error\");</script>";
+														}
+														else if(filter_var($eposta, FILTER_VALIDATE_EMAIL))
+														{
+															
+											
+														$ayarekle=$db->prepare("INSERT INTO iletisim SET
+															iletisim_isim=:iletisim_isim,
+															iletisim_mail=:iletisim_mail,
+															iletisim_mesaj=:iletisim_mesaj
+															");
+
+														$insert=$ayarekle->execute(array(
+															'iletisim_isim' => $_POST['iletisim_isim'],
+															'iletisim_mail' => $_POST['iletisim_mail'],
+															'iletisim_mesaj' => strip_tags($_POST['iletisim_mesaj'])
+															));
+
+
+														if ($insert) {
+													 
+															echo "<script type=\"text/javascript\">swal(\"Başarılı!\", \"Mesajınız İletilmiştir.\", \"success\");</script>";
+
+
+														} else {
+
+															echo "<script type=\"text/javascript\">swal(\"Başarısız!\", \"Teknik Hata.\", \"error\");</script>";
+														}
+							}
+													}
+								 ?>
 			<!-- Contact Section -->
          	<div class="page pt-contact" data-simplebar>
             	<section class="container">
@@ -643,7 +376,7 @@
 					<div class="row mt-100">
 						<div class="col-lg-12 col-sm-12">
 							<div class="contact-form ">
-                        		<form method="post" action="admin/ayar/islem.php" id="demo-form2" class="comment-form" novalidate="">
+                        		<form method="post" action="index.php#contact" id="demo-form2" class="comment-form" novalidate="">
 									<div class="row">
                             			<div class="col-lg-6 col-sm-12">
                                 			<input type="text" name="iletisim_isim" id="name" required="required" class="form-control" placeholder="İsim *">
@@ -690,7 +423,7 @@
 					<div class="google-map box-1 mt-100 mb-100">
 						<div class="row">
 							<div class="col-lg-12">
-								<div id="map" data-latitude="40.712775" data-longitude="-74.005973" data-zoom="14"></div>
+								<?php echo $ayarcek["ayar_maps"]; ?>
 							</div>
 						</div>
 					</div>
